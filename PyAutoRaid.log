@@ -1,0 +1,144 @@
+2025-01-07 07:17:15,738 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:15,740 - __main__ - INFO - Configuration file set up successfully.
+2025-01-07 07:17:15,741 - __main__ - INFO - Reset CB Day successfully.
+2025-01-07 07:17:15,741 - __main__ - INFO - Starting focused search for Raid.exe...
+2025-01-07 07:17:15,741 - __main__ - DEBUG - Valid path found: C:\Users\tunoa\AppData\Local\PlariumPlay\StandAloneApps\raid-shadow-legends. Starting recursive search here.
+2025-01-07 07:17:15,742 - __main__ - DEBUG - Found Raid.exe at C:\Users\tunoa\AppData\Local\PlariumPlay\StandAloneApps\raid-shadow-legends\127309\Raid.exe
+2025-01-07 07:17:15,743 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:15,744 - __main__ - INFO - Attempting to open Raid: Shadow Legends.
+2025-01-07 07:17:15,750 - __main__ - INFO - Waiting for game window to appear.
+2025-01-07 07:17:20,752 - root - DEBUG - Game window found, game should be loading in now.
+2025-01-07 07:17:20,754 - __main__ - INFO - Detected screen resolution: width=1920, height=1080, primary=True
+2025-01-07 07:17:20,754 - __main__ - INFO - Screen resolution is 1920x1080.
+2025-01-07 07:17:20,754 - __main__ - INFO - Screen info obtained: center_width=510, center_height=240
+2025-01-07 07:17:20,878 - __main__ - INFO - Game window resized and centered.
+2025-01-07 07:17:21,279 - __main__ - INFO - Image not found; retrying...
+2025-01-07 07:17:22,687 - __main__ - INFO - Image not found; retrying...
+2025-01-07 07:17:24,208 - __main__ - INFO - Image not found; retrying...
+2025-01-07 07:17:25,644 - __main__ - INFO - Image not found; retrying...
+2025-01-07 07:17:27,209 - __main__ - INFO - Image not found; retrying...
+2025-01-07 07:17:28,644 - __main__ - INFO - Image not found; retrying...
+2025-01-07 07:17:30,165 - __main__ - INFO - Image not found; retrying...
+2025-01-07 07:17:31,601 - __main__ - INFO - Image not found; retrying...
+2025-01-07 07:17:32,847 - __main__ - INFO - Image found. Breaking the loop.
+2025-01-07 07:17:32,847 - __main__ - INFO - Navigating back to Bastion.
+2025-01-07 07:17:35,714 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:17:35,948 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:17:35,948 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:17:36,187 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:17:36,187 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:17:36,187 - __main__ - INFO - Raid game initiated.
+2025-01-07 07:17:36,385 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:36,386 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:36,386 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:36,386 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:36,387 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:36,388 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:36,388 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:36,388 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:39,678 - __main__ - INFO - Checkbox rewards updated to True
+2025-01-07 07:17:41,006 - __main__ - INFO - Manual run button clicked.
+2025-01-07 07:17:41,009 - __main__ - INFO - Manual run triggered: True
+2025-01-07 07:17:41,408 - __main__ - INFO - Manual run triggered.
+2025-01-07 07:17:41,410 - __main__ - INFO - Executing task: rewards
+2025-01-07 07:17:41,413 - __main__ - INFO - Starting Rewards tasks.
+2025-01-07 07:17:41,416 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:41,420 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:41,427 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:41,432 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:41,438 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:41,443 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:41,447 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:41,454 - __main__ - INFO - Assets folder found at d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets
+2025-01-07 07:17:41,458 - __main__ - INFO - Starting Daily Gem Mine task.
+2025-01-07 07:17:45,673 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:17:45,677 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:17:50,025 - __main__ - DEBUG - Closed a pop-up ad. Attempt 1.
+2025-01-07 07:17:50,262 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:17:50,267 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:17:50,271 - __main__ - INFO - Completed Daily Gem Mine task.
+2025-01-07 07:17:50,274 - __main__ - INFO - Starting daily market purchase process.
+2025-01-07 07:17:50,278 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:17:50,281 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:17:50,500 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:17:50,504 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:17:52,739 - __main__ - WARNING - Market icon not found. Manual Click
+2025-01-07 07:17:57,354 - __main__ - INFO - Mystery shop icon found. Purchasing shards.
+2025-01-07 07:17:59,895 - __main__ - INFO - Mystery shard icon found. Clicking to purchase.
+2025-01-07 07:18:04,554 - __main__ - INFO - 1 mystery shards purchased, and 0 ancient shards purchased.
+2025-01-07 07:18:04,559 - __main__ - INFO - Navigating back to Bastion.
+2025-01-07 07:18:07,300 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:18:07,552 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:18:07,556 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:18:07,789 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:18:07,794 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:18:07,799 - __main__ - INFO - Daily market purchase process completed.
+2025-01-07 07:18:07,805 - __main__ - INFO - Starting Daily Shop task.
+2025-01-07 07:18:08,071 - __main__ - WARNING - Shop button not found on screen.
+2025-01-07 07:18:08,075 - __main__ - INFO - Starting Daily Guardian Ring task.
+2025-01-07 07:18:08,319 - __main__ - WARNING - Guardian Ring button not found on screen.
+2025-01-07 07:18:08,323 - __main__ - INFO - Starting Daily Timed Rewards task.
+2025-01-07 07:18:14,161 - __main__ - INFO - Navigating back to Bastion.
+2025-01-07 07:18:16,959 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:18:17,188 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:18:17,193 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:18:17,410 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:18:17,414 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:18:17,416 - __main__ - INFO - Completed Daily Timed Rewards task.
+2025-01-07 07:18:17,419 - __main__ - INFO - Starting Daily Clan task.
+2025-01-07 07:18:28,512 - __main__ - INFO - Navigating back to Bastion.
+2025-01-07 07:18:31,264 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:18:31,512 - __main__ - INFO - Completed Daily Clan task.
+2025-01-07 07:18:31,515 - __main__ - INFO - Starting Daily Quest Claims task.
+2025-01-07 07:18:36,134 - __main__ - INFO - Navigating back to Bastion.
+2025-01-07 07:18:38,862 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:18:41,401 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:18:41,620 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:18:41,623 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:18:41,855 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:18:41,858 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:18:41,861 - __main__ - INFO - Completed Daily Quest Claims task.
+2025-01-07 07:18:41,865 - __main__ - INFO - Starting Daily Inbox task.
+2025-01-07 07:18:45,573 - __main__ - INFO - Navigating back to Bastion.
+2025-01-07 07:18:48,306 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:18:48,526 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:18:48,529 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:18:48,764 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:18:48,767 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:18:48,776 - __main__ - INFO - Completed Daily Inbox task.
+2025-01-07 07:18:48,779 - __main__ - INFO - Completed Rewards tasks.
+2025-01-07 07:18:48,782 - __main__ - INFO - Executing task: daily_ten_classic_arena
+2025-01-07 07:18:48,786 - __main__ - INFO - Starting Daily Ten Classic Arena task.
+2025-01-07 07:18:48,791 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:18:48,795 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:18:49,018 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:18:49,022 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:19:08,192 - __main__ - DEBUG - Waiting for 'Tap to Continue' screen.
+2025-01-07 07:19:21,522 - __main__ - INFO - Completed an arena battle. Total battles: 1
+2025-01-07 07:19:37,115 - __main__ - DEBUG - Waiting for 'Tap to Continue' screen.
+2025-01-07 07:19:49,186 - __main__ - INFO - Completed an arena battle. Total battles: 2
+2025-01-07 07:20:04,747 - __main__ - DEBUG - Waiting for 'Tap to Continue' screen.
+2025-01-07 07:20:40,018 - __main__ - INFO - Completed an arena battle. Total battles: 3
+2025-01-07 07:20:55,580 - __main__ - DEBUG - Waiting for 'Tap to Continue' screen.
+2025-01-07 07:21:07,645 - __main__ - INFO - Completed an arena battle. Total battles: 4
+2025-01-07 07:21:23,177 - __main__ - DEBUG - Waiting for 'Tap to Continue' screen.
+2025-01-07 07:21:35,115 - __main__ - INFO - Completed an arena battle. Total battles: 5
+2025-01-07 07:21:59,175 - __main__ - DEBUG - Waiting for 'Tap to Continue' screen.
+2025-01-07 07:23:04,947 - __main__ - INFO - Completed an arena battle. Total battles: 6
+2025-01-07 07:23:27,773 - __main__ - DEBUG - Waiting for 'Tap to Continue' screen.
+2025-01-07 07:24:16,893 - __main__ - INFO - Completed an arena battle. Total battles: 7
+2025-01-07 07:24:39,741 - __main__ - DEBUG - Waiting for 'Tap to Continue' screen.
+2025-01-07 07:25:02,006 - __main__ - INFO - Completed an arena battle. Total battles: 8
+2025-01-07 07:25:27,280 - __main__ - INFO - Navigating back to Bastion.
+2025-01-07 07:25:30,036 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:25:32,555 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:25:35,051 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:25:37,593 - __main__ - INFO - Successfully navigated back to Bastion.
+2025-01-07 07:25:37,820 - __main__ - INFO - Attempting to close any pop-up ads.
+2025-01-07 07:25:37,824 - __main__ - DEBUG - Looking for exitAdd.png at: d:\Users\tunoa\Documents\Source\PyAutoRaidFork\assets\exitAdd.png
+2025-01-07 07:25:38,048 - __main__ - INFO - No pop-up ads found.
+2025-01-07 07:25:38,050 - __main__ - INFO - No pop-up ads found or all ads closed.
+2025-01-07 07:25:38,055 - __main__ - INFO - 8 total classic arena battles fought
+2025-01-07 07:25:38,058 - __main__ - INFO - Completed Daily Ten Classic Arena task.
+2025-01-07 07:25:38,062 - __main__ - INFO - Manual run triggered: False
+2025-01-07 07:32:43,243 - __main__ - ERROR - Error on closing: 'GUI' object has no attribute 'timer'

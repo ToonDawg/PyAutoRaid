@@ -122,17 +122,42 @@ class Daily:
             sys.exit(1)
 
     def find_raid_path(self):
-        appdata_local = os.path.join(os.environ['LOCALAPPDATA'])
-        raid_feature = "Raid.exe"
-        for root, dirs, files in os.walk(appdata_local):
-            if raid_feature in dirs or raid_feature in files:
-                raidloc = os.path.join(root, raid_feature)
-                logging.debug(f"Found Raid.exe installed at {raidloc}")
-                self.steps["Raid_path"]="True"
-                return raidloc
-        self.steps["Raid_path"]="False"
-        logging.error("Raid.exe was not found.")
-        sys.exit(1)
+        try:
+            logging.info("Starting focused search for Raid.exe...")
+            appdata_local = os.path.join(os.environ['LOCALAPPDATA'])
+            raid_feature = "Raid.exe"
+
+            # Most specific likely path
+            current_path = os.path.join(appdata_local, "PlariumPlay", "StandAloneApps", "raid-shadow-legends")
+
+            # Step 1: Check if the likely path exists; move backward if it doesn't
+            while not os.path.exists(current_path) and current_path != appdata_local:
+                logging.debug(f"Path not found: {current_path}. Moving to parent directory.")
+                current_path = os.path.dirname(current_path)
+
+            if not os.path.exists(current_path):
+                logging.error("No valid path found starting from likely paths.")
+                self.steps["Raid_path"] = "False"
+                sys.exit(1)
+
+            logging.debug(f"Valid path found: {current_path}. Starting recursive search here.")
+
+            # Step 2: Perform a recursive search starting from the valid path
+            for root, dirs, files in os.walk(current_path, topdown=True):
+                # Check for the target file
+                if raid_feature in files:
+                    raidloc = os.path.join(root, raid_feature)
+                    logging.debug(f"Found Raid.exe at {raidloc}")
+                    self.steps["Raid_path"] = "True"
+                    return raidloc
+
+            # Step 3: If not found, log an error
+            self.steps["Raid_path"] = "False"
+            logging.error("Raid.exe was not found after recursive search.")
+            sys.exit(1)
+
+        except Exception as e:
+            logging.error(f"Error in find_raid_path: {e}")
     
     def get_asset_path(self):
         # Start with the directory of the current script
