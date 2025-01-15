@@ -11,15 +11,15 @@ class RewardsCommand(CommandBase):
         self.AS_bought = 0
         self.MS_bought = 0
         self.GR_upgrades = 0
-        
+         
     def execute(self):
         self.logger.info("Starting Rewards tasks.")
+        self.dailyMarketPurchase()
         self.dailyClan()
         self.dailyGemMine()
         self.dailyGuardianRingCommand()
         self.dailyQuestClaims()
         self.dailyShopCommand()
-        self.dailyMarketPurchase()
         self.dailyTimedRewards()
         self.dailyInbox()
 
@@ -31,6 +31,7 @@ class RewardsCommand(CommandBase):
             self.click_handler.swipe_up()
             self.click_handler.swipe_right()
             self.click_handler.click((800, 560), "Manually clicking Gem Mine")
+            time.sleep(1)
             self.click_handler.click((800, 560), "Manually clicking Gem Mine")
             self.click_handler.press_key("esc")
 
@@ -39,10 +40,6 @@ class RewardsCommand(CommandBase):
             self.logger.error(f"Error in DailyGemMineCommand: {e}")
             self.click_handler.back_to_bastion()
             self.click_handler.delete_popup()
-
-
-
-        
 
     def dailyMarketPurchase(self):
         try:
@@ -60,7 +57,9 @@ class RewardsCommand(CommandBase):
 
             # Purchase shards
             def purchase_shards(shop_icon, get_icon, shard_type):
-                while self.click_handler._locate_image(shop_icon, f"{shard_type} Shop Icon"):
+                for _ in range(3):
+                    if not self.click_handler._locate_image(shop_icon, f"{shard_type} Shop Icon"):
+                        return
                     self.click_handler.click_image(shop_icon, f"Clicking {shard_type} Shop")
                     while self.click_handler._locate_image(get_icon, f"{shard_type} Get Icon"):
                         self.click_handler.click_image(get_icon, f"Clicking {shard_type} Get Icon")
@@ -69,9 +68,10 @@ class RewardsCommand(CommandBase):
                         elif shard_type == "Ancient":
                             self.AS_bought += 1
 
+            time.sleep(1)
             purchase_shards("shopShard.png", "getShard.png", "Mystery")
             purchase_shards("marketAS.png", "getAS.png", "Ancient")
-            self.click_handler.swipe_up()
+            self.click_handler.swipe_left()
             purchase_shards("shopShard.png", "getShard.png", "Mystery")
             purchase_shards("marketAS.png", "getAS.png", "Ancient")
             

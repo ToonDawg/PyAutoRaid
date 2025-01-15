@@ -284,7 +284,7 @@ class ClickHandler:
             
             # Paths for images
             quit_game_image = "quitGame.png"
-            lightning_offer_text_image = "lightningOfferText.png"
+            lightning_offer_text_image = "lightningOfferClose.png"
             go_back = "goBack.png"
             
             while True:
@@ -303,7 +303,7 @@ class ClickHandler:
                     self.press_key("esc", "Pressing ESC key to confirm.")
                     time.sleep(1)
 
-                    # Confirm we're back in Bastion by locating the Battle button
+                    # Confirm we're back in Bastion by checking there is no close image
                     if not self._locate_image(go_back):
                         self.logger.info("Successfully navigated back to Bastion.")
                         return
@@ -394,3 +394,11 @@ class ClickHandler:
         except Exception as e:
             print(f"Error in text_on_screen_contains: {e}")
             return False
+    
+    def scroll_to_top(self):
+        """Scroll to the top of the Doom Tower screen."""
+        self.logger.info("Scrolling to the top of the Doom Tower screen.")
+        for _ in range(3):  # Adjust range based on screen length
+            self.swipe_down()  # Scroll up
+            time.sleep(.3)
+            

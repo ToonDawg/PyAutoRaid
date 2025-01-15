@@ -1,7 +1,8 @@
 import configparser
 import os
-from datetime import datetime
 from utils.command_factory import CommandKeys
+from datetime import datetime, time, timedelta
+
 
 class ConfigHandler:
     def __init__(self, config_file="PARconfig.ini"):
@@ -14,6 +15,8 @@ class ConfigHandler:
 
         # Ensure all CommandKeys enums are present in the Settings section
         self._initialize_enum_settings()
+        self._reset_actuals_if_new_period()
+
 
     def _create_default_config(self):
         """Creates a default configuration file if it doesn't exist."""
@@ -41,6 +44,33 @@ class ConfigHandler:
             'ultra-nightmare': '0',
         }
         self.save_config()
+        
+
+    def _reset_actuals_if_new_period(self):
+        """Resets ActualClanBossFightsToday if the current time is beyond the reset period."""
+        now = datetime.utcnow()
+        last_reset = self.config.get('Settings', 'last_reset', fallback=None)
+
+        # Parse the last reset time or default to a distant past
+        last_reset_datetime = datetime.strptime(last_reset, '%Y-%m-%d %H:%M:%S') if last_reset else datetime.min
+
+        # Calculate the most recent reset time (11:00 UTC today or yesterday)
+        reset_time = time(11, 0)
+        today_reset = datetime.combine(now.date(), reset_time)
+        last_reset_time = today_reset if now >= today_reset else today_reset - timedelta(days=1)
+
+        # Perform reset if last reset occurred before the most recent reset time
+        if last_reset_datetime < last_reset_time:
+            self.config.set('Settings', 'last_reset', now.strftime('%Y-%m-%d %H:%M:%S'))
+
+            if self.config.has_section('ActualClanBossFightsToday'):
+                for key in self.config['ActualClanBossFightsToday']:
+                    self.config.set('ActualClanBossFightsToday', key, '0')
+
+            self.save_config()
+            print(f"Resetting ActualClanBossFightsToday at {now.strftime('%H:%M')} UTC.")
+
+
 
     def _initialize_enum_settings(self):
         """Ensures all CommandKeys enums are present in the Settings section."""

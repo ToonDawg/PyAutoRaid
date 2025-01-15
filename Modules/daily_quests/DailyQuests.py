@@ -8,7 +8,7 @@ from Modules.arena import DailyTenArenaCommand
 class DailyQuestsCommand(CommandBase):
     def __init__(self, py_auto_raid_instance, logger, click_handler):
         super().__init__(py_auto_raid_instance, logger, click_handler)
-        self.arena_battles = DailyTenArenaCommand.DailyTenClassicArenaCommand(self.app, self.logger, self.click_handler)
+        self.arena_battles = DailyTenArenaCommand.ClassicArenaCommand(self.app, self.logger, self.click_handler)
         self.steps = {}
         self.MS_bought = 0
         self.classic_battles = 0
@@ -68,9 +68,9 @@ class DailyQuestsCommand(CommandBase):
                 # Click replay button while it is visible
                 while self.click_handler.click_image("replayCampaign.png", "Clicking Replay Campaign button"):
                     time.sleep(2)
-
-            # Ensure replay campaign button disappears before proceeding
-            self.click_handler.wait_until_disappears("replayCampaign.png", "Waiting for Replay Campaign button to disappear")
+                    
+            self.click_handler.wait_for_image("replayCampaign.png", "Waiting for Replay Campaign button")
+            time.sleep(2)
 
             # Return to bastion if necessary
             if self.click_handler.click_image("bastion.png", "Returning to Bastion"):
@@ -158,15 +158,12 @@ class DailyQuestsCommand(CommandBase):
                 self.click_handler.click_image("hideSetFilters.png", "Hiding Set Filters")
 
             # Scroll to view more artifacts
-            self.click_handler.swipe_up(distance=800, duration=1)
-            self.click_handler.click((1123, 665), "Selecting another gear slot")
-            time.sleep(1)
-            self.click_handler.swipe_up(distance=800, duration=1)
+            self.click_handler.swipe_up(distance=400, duration=1)
             time.sleep(2)
 
             # Find and select an artifact that can be upgraded
             while True:
-                x, y = random.randint(770, 1145), random.randint(371, 814)
+                x, y = random.randint(770, 1130), random.randint(370, 700)
                 self.click_handler.click((x, y), "Selecting a random artifact for upgrade")
                 self.click_handler.click_image("upgradeArtifact.png", "Clicking Upgrade Artifact Button")
 
@@ -176,7 +173,8 @@ class DailyQuestsCommand(CommandBase):
 
                 # If the artifact cannot be upgraded, go back to the list
                 self.logger.debug("Selected artifact cannot be upgraded. Returning to item list.")
-                pyautogui.press('esc')
+                if self.click_handler.click_image("artifactUpgradeScreen.png", "Artifact Upgrade Screen"):
+                    pyautogui.press('esc')
                 time.sleep(1)
 
             # Perform upgrades

@@ -6,8 +6,6 @@ class TagTeamArenaCommand(CommandBase):
     def __init__(self, app, logger, click_handler):
         super().__init__(app, logger, click_handler)
         self.tag_team_battles = 0
-        self.logger = logger
-        self.click_handler = ClickHandler(logger)
 
     def execute(self):
         try:

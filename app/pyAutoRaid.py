@@ -6,7 +6,7 @@ import subprocess
 import time
 import pygetwindow as gw
 import sys
-from Modules.arena.DailyTenArenaCommand import DailyTenClassicArenaCommand
+from Modules.arena.DailyTenArenaCommand import ClassicArenaCommand
 from Modules.arena.TagTeamArenaCommand import TagTeamArenaCommand
 from Modules.clan_boss.ClanBossCommand import ClanBossCommand
 from Modules.daily_quests.DailyQuests import DailyQuestsCommand
@@ -16,8 +16,6 @@ from Modules.dungeons.IronTwins import IronTwinsCommand
 from Modules.faction_wars.FactionWars import FactionWarsCommand
 from utils.command_factory import CommandFactory, CommandKeys
 from utils.click_handler import ClickHandler
-import configparser
-import datetime
 
 from utils.config_handler import ConfigHandler
 
@@ -26,20 +24,20 @@ class PyAutoRaid:
     def __init__(self, tk_root: Tk, logger: Logger):
         self.tk_root = tk_root
         self.logger = logger
-        self.command_factory = CommandFactory(self, logger)
         self.click_handler = ClickHandler(logger)
+        self.command_factory = CommandFactory(self, logger, self.click_handler)
         self.config_handler = ConfigHandler()
         self.steps = {}
 
         # Register commands
-        self.command_factory.register_command(CommandKeys.REWARDS, "Collect Rewards", RewardsCommand)
         self.command_factory.register_command(CommandKeys.DAILY_QUESTS, "Daily Quests", DailyQuestsCommand)
         self.command_factory.register_command(CommandKeys.TAG_TEAM_ARENA, "Tag Team Arena", TagTeamArenaCommand)
-        self.command_factory.register_command(CommandKeys.FACTION_WARS, "Faction Wars", FactionWarsCommand)
+        self.command_factory.register_command(CommandKeys.DAILY_TEN_CLASSIC_ARENA, "Classic Arena", ClassicArenaCommand)
         self.command_factory.register_command(CommandKeys.IRON_TWINS, "Iron Twins", IronTwinsCommand)
         self.command_factory.register_command(CommandKeys.DOOM_TOWER, "Doom Tower", DoomTowerCommand)
         self.command_factory.register_command(CommandKeys.CLANBOSS, "Clan Boss", ClanBossCommand)
-        self.command_factory.register_command(CommandKeys.DAILY_TEN_CLASSIC_ARENA, "Classic Arena x 10", DailyTenClassicArenaCommand)
+        self.command_factory.register_command(CommandKeys.REWARDS, "Collect Rewards", RewardsCommand)
+        self.command_factory.register_command(CommandKeys.FACTION_WARS, "Faction Wars", FactionWarsCommand)
 
         # Initialization steps
         self.os = self.check_os()
@@ -48,6 +46,11 @@ class PyAutoRaid:
 
         # Open and prepare the game
         self.make_sure_raid_is_open()
+        game_windows = gw.getWindowsWithTitle("Raid: Shadow Legends")
+        if game_windows:
+            self.raid_window = game_windows[0]
+
+
 
     def check_os(self):
         try:
@@ -115,7 +118,7 @@ class PyAutoRaid:
         try:
             subprocess.Popen(
                 [
-                    os.path.join(self.raid_path, "PlariumPlay.exe"),
+                    os.path.join(os.getenv("LOCALAPPDATA"), "PlariumPlay\\PlariumPlay.exe"),
                     "--args",
                     "-gameid=101",
                     "-tray-start",
@@ -135,17 +138,25 @@ class PyAutoRaid:
                 self.logger.warning("Raid window not found. Skipping configuration.")
                 return
 
-            raid_window = game_windows[0]
-            raid_window.restore()
-            raid_window.resizeTo(900, 600)
-            raid_window.moveTo(500, 200)
-            raid_window.activate()
+            self.raid_window = game_windows[0]
+            self.raid_window.restore()
+            self.raid_window.resizeTo(900, 600)
+            self.raid_window.moveTo(500, 200)
+            self.raid_window.activate()
             
             self.logger.info("Raid window resized and centered successfully.")
         except Exception as e:
             self.logger.error(f"Error configuring game window: {e}")
             raise
 
+    def actvate_game_window(self):
+        try:
+            self.raid_window.activate()
+            self.logger.info("Raid window activated successfully.")
+        except Exception as e:
+            self.logger.error(f"Error configuring game window: {e}")
+            raise
+        
     def run_task(self, key: CommandKeys):
         self.configure_game_window()
         command = self.command_factory.get_command(key)

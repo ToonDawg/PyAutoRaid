@@ -13,9 +13,11 @@ class ClanBossCommand(CommandBase):
 
             # Coordinates for the difficulties
             difficulties = {
-                "ultra-nightmare": (1200, 550),
-                "nightmare": (1200, 650),
+                "nightmare": (1200, 550),
+                "ultra-nightmare": (1200, 650),
             }
+            
+            self.app.config_handler._reset_actuals_if_new_period()
 
             # Read planned and actual fights from the config
             planned_fights = self.app.config_handler.list_settings("PlannedClanBossFightsToday")
@@ -27,6 +29,7 @@ class ClanBossCommand(CommandBase):
             self.click_handler.click_image(clan_boss_image, "Clan Boss option")
             self.click_handler.click_image("demonLord2.png", "Demon Lord")
             self.click_handler.swipe_up(moveFromX=1200)
+            time.sleep(1)
 
             for difficulty, (x, y) in difficulties.items():
                 planned = int(planned_fights.get(difficulty, 0))
@@ -42,6 +45,12 @@ class ClanBossCommand(CommandBase):
                 self.logger.info(f"Battling {difficulty.capitalize()} (Remaining: {planned - actual}).")
                 self.click_handler.click((x, y), f"Selecting {difficulty.capitalize()} difficulty")
                 time.sleep(1)
+                
+                # Claim CB rewards
+                while self.click_handler.click_image("CBclaim.png", "Claim CB Rewards"):
+                    time.sleep(1)
+                    self.click_handler.press_key("esc", "Accepting Rewards")
+                    
 
                 if self._start_battle():
                     self.logger.info(f"Battle started for {difficulty.capitalize()}.")
@@ -52,6 +61,10 @@ class ClanBossCommand(CommandBase):
                 else:
                     self.logger.warning(f"No keys available for {difficulty.capitalize()}.")
                     break
+                # Wait for continue
+                if self.click_handler.wait_for_image("resultClanBoss.png", "Waiting for Clan Boss Results"):
+                    self.click_handler.press_key("esc", "Return to Clan Boss Battle Screen")
+                    self.click_handler.press_key("esc", "Return to Clan Boss Difficulty Screen")
 
             self.logger.info("Clan Boss task completed.")
         except Exception as e:

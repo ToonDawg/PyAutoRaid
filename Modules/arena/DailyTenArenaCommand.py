@@ -1,12 +1,12 @@
 import time
 from utils.base_command import CommandBase
 
-class DailyTenClassicArenaCommand(CommandBase):
+class ClassicArenaCommand(CommandBase):
     def __init__(self, app, logger, click_handler):
         super().__init__(app, logger, click_handler)
         self.classic_battles = 0
         
-    def execute(self, count=10):
+    def execute(self, count=100):
         self.logger.info("Starting daily classic arena battles task.")
         try:
             self.click_handler.delete_popup()
@@ -21,6 +21,10 @@ class DailyTenClassicArenaCommand(CommandBase):
             # Define positions to check (top and bottom)
             positions = ["top", "bottom"]
             position_index = 0
+            if self.click_handler._locate_image("arenaRefresh.png"):
+                self.click_handler.click_image("arenaRefresh.png")
+                self.logger.info("Arena refreshed. Retrying.")
+                fought_teams.clear()
 
             while position_index < len(positions):
                 is_bottom_position = (positions[position_index] == "bottom")

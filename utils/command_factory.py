@@ -17,10 +17,10 @@ class CommandKeys(Enum):
     TAG_TEAM_ARENA = "tag_team_arena"
 
 class CommandFactory:
-    def __init__(self, daily_instance: 'PyAutoRaid', logger: Logger):
+    def __init__(self, daily_instance: 'PyAutoRaid', logger: Logger, click_handler: 'ClickHandler'):
         self.app = daily_instance
         self.logger = logger
-        self.click_handler = ClickHandler(logger)
+        self.click_handler = click_handler
         self.registry = {}
 
     def register_command(self, key, display_name, command_class):

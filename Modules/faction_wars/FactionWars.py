@@ -11,12 +11,15 @@ class FactionWarsCommand(CommandBase):
             time.sleep(1)
             self.click_handler.swipe_right(205, 1)
         elif direction == "left":
-            self.click_handler.swipe_right(800)
+            self.click_handler.swipe_right(1400, 1)
         time.sleep(1)
 
     def execute(self):
         try:
             self.logger.info("Starting Faction Wars task.")
+            
+            # Collect rewards if bought something from the shop.
+            
 
             faction_positions = {
                 "right": [
@@ -33,8 +36,8 @@ class FactionWarsCommand(CommandBase):
                     {"name": "Lizardmen", "x": 670, "y": 480},
                     {"name": "Knight Revenant", "x": 800, "y": 610},
                     {"name": "Skinwalkers", "x": 800, "y": 350},
-                    {"name": "Undead Hordes", "x": 950, "y": 470},
-                    {"name": "Demonspawn", "x": 1060, "y": 470},
+                    {"name": "Undead Hordes", "x": 950, "y": 500},
+                    {"name": "Demonspawn", "x": 1060, "y": 350},
                     {"name": "Ogryn Tribes", "x": 1180, "y": 600},
                     {"name": "Orcs", "x": 1260, "y": 500},
                 ],
@@ -57,6 +60,7 @@ class FactionWarsCommand(CommandBase):
 
                     # Start stage
                     self.start_stage()
+                    time.sleep(2)
 
                     # If still on faction wars screen, faction is disabled
                     if self.click_handler._locate_image("factionWarsScreen.png", "Faction Wars Screen"):
@@ -97,15 +101,15 @@ class FactionWarsCommand(CommandBase):
         if self.click_handler._locate_image("multiBattleButton.png", "Multi-battle button detected"):
             self.click_handler.click_image("multiBattleButton.png", "Multi-battle button")
             self.click_handler.click_image("startMultiBattle.png", "Start Multi-battle")
-            time.sleep(1)
+            time.sleep(2)
 
     def return_to_faction_selection(self, direction):
         """Returns to faction selection after battle completion."""
         if self.click_handler._locate_image("multiBattleComplete.png", "Multi-battle Complete"):
             self.logger.info("Exiting multi-battle to faction selection.")
-            for _ in range(3):
+            self.app.actvate_game_window()
+            while not self.click_handler.wait_for_image("factionWarsScreen.png", "FW screen", 1):
                 self.click_handler.press_key("esc", "Pressing ESC to exit battle")
-                time.sleep(1)
 
             # Move back to the correct faction position
             self.move_to_faction_position(direction)
